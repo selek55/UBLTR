@@ -10,6 +10,9 @@
 
 
 
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 // 
@@ -6227,8 +6230,65 @@ namespace UBLTR.Invoice
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     [System.Xml.Serialization.XmlRootAttribute("Note", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2", IsNullable = false)]
-    public partial class NoteType : TextType1
+    public partial class NoteType : TextType1 //, IXmlSerializable
     {
+        //public static XmlQualifiedName MySchema(XmlSchemaSet schemas)
+        //{
+        //    // Burada dış dünyaya "benim şema tanımım yok" diyorsun.
+        //    // UBL kullanıyorsan zaten schema validation ayrı yapılır.
+        //    return new XmlQualifiedName("NoteType", "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2");
+        //}
+
+        //[XmlIgnore]
+        //public XCData XCData
+        //{
+        //    get
+        //    {
+        //        if (string.IsNullOrWhiteSpace(Value)) return null;
+        //        return new XCData(Value);
+        //    }
+        //    set
+        //    {
+        //        Value = value.ToString();
+        //    }
+        //}
+
+        //public XmlSchema GetSchema() => new XmlSchema();
+
+        //public void ReadXml(XmlReader reader)
+        //{
+        //    languageID = reader.GetAttribute("languageID");
+        //    languageLocaleID = reader.GetAttribute("languageLocaleID");
+
+        //    reader.Read(); // move to content
+
+        //    if (reader.NodeType == XmlNodeType.CDATA || reader.NodeType == XmlNodeType.Text)
+        //    {
+        //        Value = reader.ReadContentAsString();
+        //    }
+        //}
+
+        //public void WriteXml(XmlWriter writer)
+        //{
+        //    if (!string.IsNullOrEmpty(languageID))
+        //        writer.WriteAttributeString("languageID", languageID);
+
+        //    if (!string.IsNullOrEmpty(languageLocaleID))
+        //        writer.WriteAttributeString("languageLocaleID", languageLocaleID);
+
+        //    if (!string.IsNullOrEmpty(Value))
+        //    {
+        //        // Eğer içeriğinde XML etiketleri varsa CDATA olarak yaz
+        //        if (Value.Contains("<") || Value.Contains("&"))
+        //        {
+        //            writer.WriteString("<![CDATA[" + Value + "]]>");
+        //        }
+        //        else
+        //        {
+        //            writer.WriteString(Value);
+        //        }
+        //    }
+        //}
     }
 
     /// <remarks/>
@@ -32470,7 +32530,7 @@ namespace UBLTR.Invoice
 
         private PaymentTermsType[] paymentTermsField;
 
-        private TaxTotalType[] taxTotalField;
+        private TaxTotalType taxTotalField;
 
         private AllowanceChargeType[] allowanceChargeField;
 
@@ -32778,7 +32838,7 @@ namespace UBLTR.Invoice
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("TaxTotal")]
-        public TaxTotalType[] TaxTotal
+        public TaxTotalType TaxTotal
         {
             get
             {
