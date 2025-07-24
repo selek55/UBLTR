@@ -191,7 +191,7 @@ namespace UBLTR.FreelancerVoucher
         //public List<AllowanceChargeType> AllowanceCharge { get; set; }
 
         [XmlElement("TaxTotal", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
-        public TaxTotalType TaxTotal { get; set; }
+        public TaxTotalType[] TaxTotal { get; set; }
 
         // [XmlElement("WithholdingTaxTotal", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
         // public TaxTotalType WithholdingTaxTotal { get; set; }
