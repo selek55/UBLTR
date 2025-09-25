@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Xml.Serialization;
 using UBLTR.Invoice;
 
 // 

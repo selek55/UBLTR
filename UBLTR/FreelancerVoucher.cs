@@ -211,8 +211,6 @@ namespace UBLTR.FreelancerVoucher
         private PriceAmountType _priceAmountField;
         private LineExtensionAmountType lineExtensionAmountField;
         private PayableAmountType payableAmountField;
-        private TaxExclusiveAmountType taxExclusiveAmountField;
-        private TaxInclusiveAmountType taxInclusiveAmountField;
 
         [System.Xml.Serialization.XmlElementAttribute("GrossWageAmount", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
         public PriceAmountType GrossWageAmountType
@@ -241,36 +239,8 @@ namespace UBLTR.FreelancerVoucher
             get { return payableAmountField; }
             set { payableAmountField = value; }
         }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-        public TaxExclusiveAmountType TaxExclusiveAmount
-        {
-            get
-            {
-                return this.taxExclusiveAmountField;
-            }
-            set
-            {
-                this.taxExclusiveAmountField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-        public TaxInclusiveAmountType TaxInclusiveAmount
-        {
-            get
-            {
-                return this.taxInclusiveAmountField;
-            }
-            set
-            {
-                this.taxInclusiveAmountField = value;
-            }
-        }
-
     }
+
 
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
     [System.Xml.Serialization.XmlRootAttribute("FreelancerVoucherLine", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
@@ -286,7 +256,7 @@ namespace UBLTR.FreelancerVoucher
 
         private ItemType itemField;
 
-        //private GrossWageType _grossWageField;
+        private GrossWageType _grossWageField;
 
         private PriceType priceField;
 
@@ -324,16 +294,44 @@ namespace UBLTR.FreelancerVoucher
             set { itemField = value; }
         }
 
-        //public GrossWageType GrossWage
-        //{
-        //    get { return _grossWageField; }
-        //    set { _grossWageField = value; }
-        //}
+        public GrossWageType GrossWage
+        {
+            get { return _grossWageField; }
+            set { _grossWageField = value; }
+        }
 
         public PriceType Price
         {
             get { return priceField; }
             set { priceField = value; }
+        }
+    }
+
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2")]
+    [System.Xml.Serialization.XmlRootAttribute("AlternativeConditionPrice", Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", IsNullable = false)]
+    public partial class GrossWageType
+    {
+
+        private PriceAmountType grossWageAmountField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+        public PriceAmountType GrossWageAmount
+        {
+            get
+            {
+                return this.grossWageAmountField;
+            }
+            set
+            {
+                this.grossWageAmountField = value;
+            }
         }
     }
 }
